@@ -160,4 +160,3 @@ http://localhost:3000/v1_0_0/user/DatabaseConnectTest
 해당 URL로 접속 시 샤딩된 데이터베이스 연결 테스트가 가능합니다.
 
 ---
-`;
