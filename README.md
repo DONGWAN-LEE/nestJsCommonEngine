@@ -107,3 +107,6 @@ INSERT INTO `shard0`.`user_test` (user_idx, user_text, Createtime) VALUES(1, 'us
 INSERT INTO `shard1`.`user_test` (user_idx, user_text, Createtime) VALUES(1, 'user 1 table connect!', NOW());
 INSERT INTO `shard2`.`user_test` (user_idx, user_text, Createtime) VALUES(1, 'user 2 table connect!', NOW());
 INSERT INTO `shard3`.`user_test` (user_idx, user_text, Createtime) VALUES(1, 'user 3 table connect!', NOW());
+
+# Shard Database 연동 TEST
+http://localhost:3000/v1_0_0/user/DatabaseConnectTest
