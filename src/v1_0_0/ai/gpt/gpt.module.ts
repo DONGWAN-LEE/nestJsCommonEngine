@@ -11,6 +11,9 @@ import { SocketService } from 'src/socket/socketBackEnd/socket.service';
 import { MasterDatabaseModule } from '../../../common/database/master_database.module';
 import { MasterDatabaseService } from '../../../common/database/master_database.service';
 
+import { ShardDatabaseModule } from '../../../common/database/shard_database.module';
+import { ShardDatabaseService } from '../../../common/database/shard_database.service';
+
 import * as ENTITIES from '../../../common/entities/master';
 import * as TABLES from '../../../common/database/master';
 const tableProviders = Object.values(TABLES) as Provider[];
@@ -22,6 +25,7 @@ const tableProviders = Object.values(TABLES) as Provider[];
     ] : []),
     RedisModule,
     MasterDatabaseModule,
+    ShardDatabaseModule
   ],
   controllers: [
     GptController,
@@ -33,6 +37,7 @@ const tableProviders = Object.values(TABLES) as Provider[];
 
     SocketService,
     MasterDatabaseService,
+    ShardDatabaseService,
     ...(process.env.ENABLE_DATABASE === 'true' ? tableProviders : [])
   ],
 })

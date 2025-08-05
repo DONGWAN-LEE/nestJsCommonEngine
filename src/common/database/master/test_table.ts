@@ -14,6 +14,10 @@ export class test_table {
         private readonly dataSource: DataSource
     ) {}
 
+    async get_lists() : Promise<test[]> {
+        return await this.repository.find();
+    }
+
     async get(params: Object) : Promise<test[]> {
         return await this.repository.find({
             where: params
@@ -23,7 +27,7 @@ export class test_table {
     async getField(params: Object) : Promise<test[]> {
         return await this.repository.find({
             where: params,
-            select: ['comment_text'],
+            select: ['idx'],
             order: {
                 idx: 'ASC'
             }

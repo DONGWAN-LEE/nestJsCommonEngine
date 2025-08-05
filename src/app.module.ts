@@ -69,6 +69,170 @@ import { AladinModule } from './aladin/aladin.module';
         };
       },
     }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      name: 'shard0DB',
+      useFactory: async (configService: ConfigService) => {
+        const enableDatabase = configService.get('ENABLE_DATABASE') === 'true';
+        console.log('AppModule - ENABLE_DATABASE:', enableDatabase);
+        
+        if (!enableDatabase) {
+          console.log('User0 Database disabled - Using SQLite in-memory');
+          // SQLite in-memory 사용 (entities 없음)
+          return {
+            type: 'better-sqlite3',
+            database: ':memory:',
+            entities: [], // 빈 배열로 설정하여 entity 로드 방지
+            synchronize: false,
+            logging: false,
+            autoLoadEntities: false,
+          };
+        }
+
+        console.log('User0 Database enabled - Using MySQL');
+        return {
+          type: 'mysql',
+          host: configService.get('USER0_DATABASE_HOST'),
+          port: Number(configService.get('USER0_DATABASE_PORT')),
+          database: configService.get('USER0_DATABASE_NAME'),
+          username: configService.get('USER0_DATABASE_USERNAME'),
+          password: configService.get('USER0_DATABASE_PASSWORD'),
+          logging: Boolean(configService.get('TYPEORM_LOGGING')),
+          synchronize: false,
+          entities: ['dist/**/entities/user/*.entity.{ts,js}'],
+          ssl: true,
+          extra: {
+            ssl: {
+              rejectUnauthorized: false
+            }
+          }
+        };
+      },
+    }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      name: 'shard1DB',
+      useFactory: async (configService: ConfigService) => {
+        const enableDatabase = configService.get('ENABLE_DATABASE') === 'true';
+        console.log('AppModule - ENABLE_DATABASE:', enableDatabase);
+        
+        if (!enableDatabase) {
+          console.log('User1 Database disabled - Using SQLite in-memory');
+          // SQLite in-memory 사용 (entities 없음)
+          return {
+            type: 'better-sqlite3',
+            database: ':memory:',
+            entities: [], // 빈 배열로 설정하여 entity 로드 방지
+            synchronize: false,
+            logging: false,
+            autoLoadEntities: false,
+          };
+        }
+
+        console.log('User1 Database enabled - Using MySQL');
+        return {
+          type: 'mysql',
+          host: configService.get('USER1_DATABASE_HOST'),
+          port: Number(configService.get('USER1_DATABASE_PORT')),
+          database: configService.get('USER1_DATABASE_NAME'),
+          username: configService.get('USER1_DATABASE_USERNAME'),
+          password: configService.get('USER1_DATABASE_PASSWORD'),
+          logging: Boolean(configService.get('TYPEORM_LOGGING')),
+          synchronize: false,
+          entities: ['dist/**/entities/user/*.entity.{ts,js}'],
+          ssl: true,
+          extra: {
+            ssl: {
+              rejectUnauthorized: false
+            }
+          }
+        };
+      },
+    }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      name: 'shard2DB',
+      useFactory: async (configService: ConfigService) => {
+        const enableDatabase = configService.get('ENABLE_DATABASE') === 'true';
+        console.log('AppModule - ENABLE_DATABASE:', enableDatabase);
+        
+        if (!enableDatabase) {
+          console.log('User2 Database disabled - Using SQLite in-memory');
+          // SQLite in-memory 사용 (entities 없음)
+          return {
+            type: 'better-sqlite3',
+            database: ':memory:',
+            entities: [], // 빈 배열로 설정하여 entity 로드 방지
+            synchronize: false,
+            logging: false,
+            autoLoadEntities: false,
+          };
+        }
+
+        console.log('User2 Database enabled - Using MySQL');
+        return {
+          type: 'mysql',
+          host: configService.get('USER2_DATABASE_HOST'),
+          port: Number(configService.get('USER2_DATABASE_PORT')),
+          database: configService.get('USER2_DATABASE_NAME'),
+          username: configService.get('USER2_DATABASE_USERNAME'),
+          password: configService.get('USER2_DATABASE_PASSWORD'),
+          logging: Boolean(configService.get('TYPEORM_LOGGING')),
+          synchronize: false,
+          entities: ['dist/**/entities/user/*.entity.{ts,js}'],
+          ssl: true,
+          extra: {
+            ssl: {
+              rejectUnauthorized: false
+            }
+          }
+        };
+      },
+    }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      name: 'shard3DB',
+      useFactory: async (configService: ConfigService) => {
+        const enableDatabase = configService.get('ENABLE_DATABASE') === 'true';
+        console.log('AppModule - ENABLE_DATABASE:', enableDatabase);
+        
+        if (!enableDatabase) {
+          console.log('User3 Database disabled - Using SQLite in-memory');
+          // SQLite in-memory 사용 (entities 없음)
+          return {
+            type: 'better-sqlite3',
+            database: ':memory:',
+            entities: [], // 빈 배열로 설정하여 entity 로드 방지
+            synchronize: false,
+            logging: false,
+            autoLoadEntities: false,
+          };
+        }
+
+        console.log('User3 Database enabled - Using MySQL');
+        return {
+          type: 'mysql',
+          host: configService.get('USER3_DATABASE_HOST'),
+          port: Number(configService.get('USER3_DATABASE_PORT')),
+          database: configService.get('USER3_DATABASE_NAME'),
+          username: configService.get('USER3_DATABASE_USERNAME'),
+          password: configService.get('USER3_DATABASE_PASSWORD'),
+          logging: Boolean(configService.get('TYPEORM_LOGGING')),
+          synchronize: false,
+          entities: ['dist/**/entities/user/*.entity.{ts,js}'],
+          ssl: true,
+          extra: {
+            ssl: {
+              rejectUnauthorized: false
+            }
+          }
+        };
+      },
+    }),
     WinstonModule.forRoot({
       transports: [
         new winston.transports.Console({

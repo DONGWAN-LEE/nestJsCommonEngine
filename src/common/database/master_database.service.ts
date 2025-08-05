@@ -31,4 +31,8 @@ export class MasterDatabaseService {
         
         return await this.test_table.getDistinctCities(field);
     }
+
+    async get_test(): Promise<any> {
+        return await this.test_table.get_lists();
+    }
 }

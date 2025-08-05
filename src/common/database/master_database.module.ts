@@ -6,14 +6,14 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { RedisModule } from '../../cache/redis.module';
 import { RedisService } from '../../cache/redis.service';
 
-import * as ENTITIES from '../entities/master';
-import * as TABLES from '../database/master';
-const tableProviders = Object.values(TABLES) as Provider[];
+import * as MASTER_ENTITIES from '../entities/master';
+import * as MASTER_TABLES from '../database/master';
+const master_tableProviders = Object.values(MASTER_TABLES) as Provider[];
 
 @Module({
   imports: [
     ConfigModule,
-    TypeOrmModule.forFeature(Object.values(ENTITIES)),
+    TypeOrmModule.forFeature(Object.values(MASTER_ENTITIES)),
     RedisModule
   ],
   providers: [
@@ -27,12 +27,12 @@ const tableProviders = Object.values(TABLES) as Provider[];
       },
       inject: [ConfigService],
     },
-    ...tableProviders
+    ...master_tableProviders
   ],
   exports: [
     RedisService,
     'ENABLE_DATABASE',
-    ...tableProviders
+    ...master_tableProviders
   ]
 })
 export class MasterDatabaseModule {}

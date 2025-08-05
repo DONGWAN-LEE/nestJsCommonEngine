@@ -9,6 +9,9 @@ import { RedisService } from '../../cache/redis.service';
 import { MasterDatabaseModule } from '../database/master_database.module';
 import { MasterDatabaseService } from '../database/master_database.service';
 
+import { ShardDatabaseModule } from '../database/shard_database.module';
+import { ShardDatabaseService } from '../database/shard_database.service';
+
 import * as ENTITIES from '../entities/master';
 import * as TABLES from '../database/master';
 const tableProviders = Object.values(TABLES) as Provider[];
@@ -20,11 +23,13 @@ const tableProviders = Object.values(TABLES) as Provider[];
     ] : []),
     RedisModule,
     MasterDatabaseModule,
+    ShardDatabaseModule,
   ],
   providers: [
     CommonService,
     RedisService,
     MasterDatabaseService,
+    ShardDatabaseService,
     ...(process.env.ENABLE_DATABASE === 'true' ? tableProviders : [])
   ],
 })
