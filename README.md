@@ -60,7 +60,7 @@ npm run start:prod
 
 
 
-```Test_Database_Query
+```Test_Database_Query (.env 의 ENABLE_DATABASE 가 false 일 경우 아래 쿼리 사용 안해도 무방함.)
 CREATE DATABASE `master` /*!40100 DEFAULT CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci */;
 CREATE DATABASE `shard0` /*!40100 DEFAULT CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci */;
 CREATE DATABASE `shard1` /*!40100 DEFAULT CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci */;
