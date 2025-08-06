@@ -75,9 +75,10 @@ import { AladinModule } from './aladin/aladin.module';
       name: 'shard0DB',
       useFactory: async (configService: ConfigService) => {
         const enableDatabase = configService.get('ENABLE_DATABASE') === 'true';
-        console.log('AppModule - ENABLE_DATABASE:', enableDatabase);
+        const enableShardDatabase = configService.get('ENABLE_SHARD_DATABASE') === 'true';
+        console.log('AppModule - ENABLE_SHARD_DATABASE:', enableShardDatabase);
         
-        if (!enableDatabase) {
+        if (!enableDatabase || !enableShardDatabase) {
           console.log('User0 Database disabled - Using SQLite in-memory');
           // SQLite in-memory 사용 (entities 없음)
           return {
@@ -116,9 +117,10 @@ import { AladinModule } from './aladin/aladin.module';
       name: 'shard1DB',
       useFactory: async (configService: ConfigService) => {
         const enableDatabase = configService.get('ENABLE_DATABASE') === 'true';
-        console.log('AppModule - ENABLE_DATABASE:', enableDatabase);
+        const enableShardDatabase = configService.get('ENABLE_SHARD_DATABASE') === 'true';
+        console.log('AppModule - ENABLE_SHARD_DATABASE:', enableShardDatabase);
         
-        if (!enableDatabase) {
+        if (!enableDatabase || !enableShardDatabase) {
           console.log('User1 Database disabled - Using SQLite in-memory');
           // SQLite in-memory 사용 (entities 없음)
           return {
@@ -157,9 +159,10 @@ import { AladinModule } from './aladin/aladin.module';
       name: 'shard2DB',
       useFactory: async (configService: ConfigService) => {
         const enableDatabase = configService.get('ENABLE_DATABASE') === 'true';
-        console.log('AppModule - ENABLE_DATABASE:', enableDatabase);
+        const enableShardDatabase = configService.get('ENABLE_SHARD_DATABASE') === 'true';
+        console.log('AppModule - ENABLE_SHARD_DATABASE:', enableShardDatabase);
         
-        if (!enableDatabase) {
+        if (!enableDatabase || !enableShardDatabase) {
           console.log('User2 Database disabled - Using SQLite in-memory');
           // SQLite in-memory 사용 (entities 없음)
           return {
@@ -198,9 +201,10 @@ import { AladinModule } from './aladin/aladin.module';
       name: 'shard3DB',
       useFactory: async (configService: ConfigService) => {
         const enableDatabase = configService.get('ENABLE_DATABASE') === 'true';
-        console.log('AppModule - ENABLE_DATABASE:', enableDatabase);
+        const enableShardDatabase = configService.get('ENABLE_SHARD_DATABASE') === 'true';
+        console.log('AppModule - ENABLE_SHARD_DATABASE:', enableShardDatabase);
         
-        if (!enableDatabase) {
+        if (!enableDatabase || !enableShardDatabase) {
           console.log('User3 Database disabled - Using SQLite in-memory');
           // SQLite in-memory 사용 (entities 없음)
           return {

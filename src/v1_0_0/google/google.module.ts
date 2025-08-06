@@ -45,6 +45,8 @@ const shard3_tableProviders = Object.values(SHARD3_TABLES) as Provider[];
   imports: [
     ...(process.env.ENABLE_DATABASE === 'true' ? [
       TypeOrmModule.forFeature(Object.values(MASTER_ENTITIES)),
+    ] : []),
+    ...(process.env.ENABLE_DATABASE === 'true' && process.env.ENABLE_SHARD_DATABASE === 'true' ? [
       TypeOrmModule.forFeature(Object.values(SHARD_ENTITIES), 'shard0DB'),
       TypeOrmModule.forFeature(Object.values(SHARD_ENTITIES), 'shard1DB'),
       TypeOrmModule.forFeature(Object.values(SHARD_ENTITIES), 'shard2DB'),
@@ -71,10 +73,10 @@ const shard3_tableProviders = Object.values(SHARD3_TABLES) as Provider[];
     CommonService,
     ...(process.env.ENABLE_DATABASE === 'true' ? master_tableProviders : []),
 
-    ...(process.env.ENABLE_DATABASE === 'true' ? shard0_tableProviders : []),
-    ...(process.env.ENABLE_DATABASE === 'true' ? shard1_tableProviders : []),
-    ...(process.env.ENABLE_DATABASE === 'true' ? shard2_tableProviders : []),
-    ...(process.env.ENABLE_DATABASE === 'true' ? shard3_tableProviders : []),
+    ...(process.env.ENABLE_DATABASE === 'true' && process.env.ENABLE_SHARD_DATABASE === 'true'  ? shard0_tableProviders : []),
+    ...(process.env.ENABLE_DATABASE === 'true' && process.env.ENABLE_SHARD_DATABASE === 'true'  ? shard1_tableProviders : []),
+    ...(process.env.ENABLE_DATABASE === 'true' && process.env.ENABLE_SHARD_DATABASE === 'true'  ? shard2_tableProviders : []),
+    ...(process.env.ENABLE_DATABASE === 'true' && process.env.ENABLE_SHARD_DATABASE === 'true'  ? shard3_tableProviders : []),
   ],
 })
 export class GoogleV1_0_0Module {}

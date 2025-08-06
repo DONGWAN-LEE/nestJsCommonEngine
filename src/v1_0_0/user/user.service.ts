@@ -36,15 +36,21 @@ export class UserService {
         return isbnList;
     }
 
-    async getDatabaseConnectTest(){
+    async getDatabaseConnectTest(is_shard: boolean){
         let get_params = ['idx', 'startTime'];
 
         const master = await this.masterDatabaseService.get_test();
-        const shard_0 = await this.ShardDatabaseService.get_test('user_test', 0);
-        const shard_1 = await this.ShardDatabaseService.get_test('user_test', 1);
-        const shard_2 = await this.ShardDatabaseService.get_test('user_test', 2);
-        const shard_3 = await this.ShardDatabaseService.get_test('user_test', 3);
+        let shard_0 = "SHARD0 : Disconnect";
+        let shard_1 = "SHARD1 : Disconnect";
+        let shard_2 = "SHARD2 : Disconnect";
+        let shard_3 = "SHARD3 : Disconnect";
 
+        if(is_shard === true) {
+            shard_0 = await this.ShardDatabaseService.get_test('user_test', 0);
+            shard_1 = await this.ShardDatabaseService.get_test('user_test', 1);
+            shard_2 = await this.ShardDatabaseService.get_test('user_test', 2);
+            shard_3 = await this.ShardDatabaseService.get_test('user_test', 3);
+        }
         return {
             master: master,
             shard_0: shard_0,

@@ -2,6 +2,7 @@ import {
     Get,
     Post,
     Body,
+    Param,
     Controller,
     Res,
 } from '@nestjs/common';
@@ -31,9 +32,10 @@ export class UserController {
         private readonly ShardDatabaseService: ShardDatabaseService,
     ) {}
 
-    @Get("DatabaseConnectTest")
-    async DatabaseConnectTest(@Body() req: any) {
-        let connect = await this.userService.getDatabaseConnectTest();
+    @Get("DatabaseConnectTest/:is_shard")
+    async DatabaseConnectTest(@Body() req: any, @Param('is_shard') is_shard: boolean) {
+        console.log(is_shard);
+        let connect = await this.userService.getDatabaseConnectTest(is_shard);
         console.log(connect);
 
         return connect;
