@@ -79,7 +79,7 @@ import { AladinModule } from './aladin/aladin.module';
         console.log('AppModule - ENABLE_SHARD_DATABASE:', enableShardDatabase);
         
         if (!enableDatabase || !enableShardDatabase) {
-          console.log('User0 Database disabled - Using SQLite in-memory');
+          console.log('Shard0 Database disabled - Using SQLite in-memory');
           // SQLite in-memory 사용 (entities 없음)
           return {
             type: 'better-sqlite3',
@@ -91,17 +91,17 @@ import { AladinModule } from './aladin/aladin.module';
           };
         }
 
-        console.log('User0 Database enabled - Using MySQL');
+        console.log('Shard0 Database enabled - Using MySQL');
         return {
           type: 'mysql',
-          host: configService.get('USER0_DATABASE_HOST'),
-          port: Number(configService.get('USER0_DATABASE_PORT')),
-          database: configService.get('USER0_DATABASE_NAME'),
-          username: configService.get('USER0_DATABASE_USERNAME'),
-          password: configService.get('USER0_DATABASE_PASSWORD'),
+          host: configService.get('SHARD0_DATABASE_HOST'),
+          port: Number(configService.get('SHARD0_DATABASE_PORT')),
+          database: configService.get('SHARD0_DATABASE_NAME'),
+          username: configService.get('SHARD0_DATABASE_USERNAME'),
+          password: configService.get('SHARD0_DATABASE_PASSWORD'),
           logging: Boolean(configService.get('TYPEORM_LOGGING')),
           synchronize: false,
-          entities: ['dist/**/entities/user/*.entity.{ts,js}'],
+          entities: ['dist/**/entities/shard/*.entity.{ts,js}'],
           ssl: true,
           extra: {
             ssl: {
@@ -121,7 +121,7 @@ import { AladinModule } from './aladin/aladin.module';
         console.log('AppModule - ENABLE_SHARD_DATABASE:', enableShardDatabase);
         
         if (!enableDatabase || !enableShardDatabase) {
-          console.log('User1 Database disabled - Using SQLite in-memory');
+          console.log('Shard1 Database disabled - Using SQLite in-memory');
           // SQLite in-memory 사용 (entities 없음)
           return {
             type: 'better-sqlite3',
@@ -133,17 +133,17 @@ import { AladinModule } from './aladin/aladin.module';
           };
         }
 
-        console.log('User1 Database enabled - Using MySQL');
+        console.log('Shard1 Database enabled - Using MySQL');
         return {
           type: 'mysql',
-          host: configService.get('USER1_DATABASE_HOST'),
-          port: Number(configService.get('USER1_DATABASE_PORT')),
-          database: configService.get('USER1_DATABASE_NAME'),
-          username: configService.get('USER1_DATABASE_USERNAME'),
-          password: configService.get('USER1_DATABASE_PASSWORD'),
+          host: configService.get('SHARD1_DATABASE_HOST'),
+          port: Number(configService.get('SHARD1_DATABASE_PORT')),
+          database: configService.get('SHARD1_DATABASE_NAME'),
+          username: configService.get('SHARD1_DATABASE_USERNAME'),
+          password: configService.get('SHARD1_DATABASE_PASSWORD'),
           logging: Boolean(configService.get('TYPEORM_LOGGING')),
           synchronize: false,
-          entities: ['dist/**/entities/user/*.entity.{ts,js}'],
+          entities: ['dist/**/entities/shard/*.entity.{ts,js}'],
           ssl: true,
           extra: {
             ssl: {
@@ -163,7 +163,7 @@ import { AladinModule } from './aladin/aladin.module';
         console.log('AppModule - ENABLE_SHARD_DATABASE:', enableShardDatabase);
         
         if (!enableDatabase || !enableShardDatabase) {
-          console.log('User2 Database disabled - Using SQLite in-memory');
+          console.log('Shard2 Database disabled - Using SQLite in-memory');
           // SQLite in-memory 사용 (entities 없음)
           return {
             type: 'better-sqlite3',
@@ -175,17 +175,17 @@ import { AladinModule } from './aladin/aladin.module';
           };
         }
 
-        console.log('User2 Database enabled - Using MySQL');
+        console.log('Shard2 Database enabled - Using MySQL');
         return {
           type: 'mysql',
-          host: configService.get('USER2_DATABASE_HOST'),
-          port: Number(configService.get('USER2_DATABASE_PORT')),
-          database: configService.get('USER2_DATABASE_NAME'),
-          username: configService.get('USER2_DATABASE_USERNAME'),
-          password: configService.get('USER2_DATABASE_PASSWORD'),
+          host: configService.get('SHARD2_DATABASE_HOST'),
+          port: Number(configService.get('SHARD2_DATABASE_PORT')),
+          database: configService.get('SHARD2_DATABASE_NAME'),
+          username: configService.get('SHARD2_DATABASE_USERNAME'),
+          password: configService.get('SHARD2_DATABASE_PASSWORD'),
           logging: Boolean(configService.get('TYPEORM_LOGGING')),
           synchronize: false,
-          entities: ['dist/**/entities/user/*.entity.{ts,js}'],
+          entities: ['dist/**/entities/shard/*.entity.{ts,js}'],
           ssl: true,
           extra: {
             ssl: {
@@ -205,7 +205,7 @@ import { AladinModule } from './aladin/aladin.module';
         console.log('AppModule - ENABLE_SHARD_DATABASE:', enableShardDatabase);
         
         if (!enableDatabase || !enableShardDatabase) {
-          console.log('User3 Database disabled - Using SQLite in-memory');
+          console.log('Shard3 Database disabled - Using SQLite in-memory');
           // SQLite in-memory 사용 (entities 없음)
           return {
             type: 'better-sqlite3',
@@ -217,17 +217,17 @@ import { AladinModule } from './aladin/aladin.module';
           };
         }
 
-        console.log('User3 Database enabled - Using MySQL');
+        console.log('Shard3 Database enabled - Using MySQL');
         return {
           type: 'mysql',
-          host: configService.get('USER3_DATABASE_HOST'),
-          port: Number(configService.get('USER3_DATABASE_PORT')),
-          database: configService.get('USER3_DATABASE_NAME'),
-          username: configService.get('USER3_DATABASE_USERNAME'),
-          password: configService.get('USER3_DATABASE_PASSWORD'),
+          host: configService.get('SHARD3_DATABASE_HOST'),
+          port: Number(configService.get('SHARD3_DATABASE_PORT')),
+          database: configService.get('SHARD3_DATABASE_NAME'),
+          username: configService.get('SHARD3_DATABASE_USERNAME'),
+          password: configService.get('SHARD3_DATABASE_PASSWORD'),
           logging: Boolean(configService.get('TYPEORM_LOGGING')),
           synchronize: false,
-          entities: ['dist/**/entities/user/*.entity.{ts,js}'],
+          entities: ['dist/**/entities/shard/*.entity.{ts,js}'],
           ssl: true,
           extra: {
             ssl: {

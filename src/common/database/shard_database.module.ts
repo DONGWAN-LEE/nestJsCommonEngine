@@ -8,12 +8,12 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { RedisModule } from '../../cache/redis.module';
 import { RedisService } from '../../cache/redis.service';
 
-import * as SHARD_ENTITIES from '../entities/user';
+import * as SHARD_ENTITIES from '../entities/shard';
 
-import * as SHARD0_TABLES from './user0';
-import * as SHARD1_TABLES from './user1';
-import * as SHARD2_TABLES from './user2';
-import * as SHARD3_TABLES from './user3';
+import * as SHARD0_TABLES from './shard0';
+import * as SHARD1_TABLES from './shard1';
+import * as SHARD2_TABLES from './shard2';
+import * as SHARD3_TABLES from './shard3';
 
 const shard0_tableProviders = Object.values(SHARD0_TABLES) as Provider[];
 const shard1_tableProviders = Object.values(SHARD1_TABLES) as Provider[];

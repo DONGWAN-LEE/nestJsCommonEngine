@@ -15,11 +15,11 @@ import { ShardDatabaseService } from '../database/shard_database.service';
 import * as MASTER_ENTITIES from '../../common/entities/master';
 import * as MASTER_TABLES from '../../common/database/master';
 
-import * as SHARD_ENTITIES from '../../common/entities/user';
-import * as SHARD0_TABLES from '../../common/database/user0';
-import * as SHARD1_TABLES from '../../common/database/user1';
-import * as SHARD2_TABLES from '../../common/database/user2';
-import * as SHARD3_TABLES from '../../common/database/user3';
+import * as SHARD_ENTITIES from '../entities/shard';
+import * as SHARD0_TABLES from '../database/shard0';
+import * as SHARD1_TABLES from '../database/shard1';
+import * as SHARD2_TABLES from '../database/shard2';
+import * as SHARD3_TABLES from '../database/shard3';
 
 const master_tableProviders = Object.values(MASTER_TABLES) as Provider[];
 

@@ -2,19 +2,19 @@ import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 
 import { 
     user0_test_table,
-  } from './user0';
+  } from './shard0';
   
   import { 
     user1_test_table,
-  } from './user1';
+  } from './shard1';
   
   import { 
     user2_test_table
-  } from './user2';
+  } from './shard2';
   
   import { 
     user3_test_table
-  } from './user3';
+  } from './shard3';
 
 @Injectable()
 export class ShardDatabaseService {

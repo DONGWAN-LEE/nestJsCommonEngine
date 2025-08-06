@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DataSource, EntityManager, In, QueryRunner, Repository} from 'typeorm';
-import { user_test } from '../../entities/user/user_test.entity';
+import { user_test } from '../../entities/shard/user_test.entity';
 
 @Injectable()
-export class user2_test_table {
+export class user1_test_table {
     /*constructor(private readonly dataSource: DataSource) {
         
     }*/
     constructor(
-        @InjectRepository(user_test, 'shard2DB')
+        @InjectRepository(user_test, 'shard1DB')
         private repository: Repository<user_test>,
         private readonly dataSource: DataSource
     ) {}
