@@ -154,9 +154,13 @@ VALUES (1, 'user 3 table connect!', NOW());
 ### 🔗 Shard Database 연동 테스트
 
 ```text
-http://localhost:3000/v1_0_0/user/DatabaseConnectTest
+http://localhost:3000/v1_0_0/user/DatabaseConnectTest/:is_shard
 ```
 
 해당 URL로 접속 시 샤딩된 데이터베이스 연결 테스트가 가능합니다.
+Shard 기능이 on 이면 
+http://localhost:3000/v1_0_0/user/DatabaseConnectTest/true
+off 면
+http://localhost:3000/v1_0_0/user/DatabaseConnectTest/false
 
 ---
